@@ -1,0 +1,23 @@
+{
+  "asar": false,
+  "directories": {
+    "output": "../release/"
+  },
+  "extraResources": [
+    {
+      "from": "dist/angular",
+      "to": "app",
+      "filter": [
+        "**/*"
+      ]
+    }
+  ],
+  "win": {
+    "icon": "dist/assets/icons",
+    "target": [
+      "portable"
+    ]
+  },
+  "portable": {
+  }
+}

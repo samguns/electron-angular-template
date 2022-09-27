@@ -1,0 +1,46 @@
+{
+  "name": "electron-app",
+  "version": "0.0.1",
+  "private": true,
+  "author": {
+    "name": "Wang Gang",
+    "email": "wang.vai@gmail.com"
+  },
+  "scripts": {
+    "dev": "electron-webpack dev",
+    "compile": "electron-webpack",
+    "dist": "npm run compile && electron-builder",
+    "dist:dir": "npm run dist --dir -c.compression=store -c.mac.identity=null",
+    "postinstall": "electron-builder install-app-deps"
+  },
+  "dependencies": {
+    "cookie-parser": "^1.4.6",
+    "dotenv": "^16.0.2",
+    "express": "^4.18.1",
+    "express-fileupload": "^1.4.0",
+    "http-errors": "^2.0.0",
+    "jsonwebtoken": "^8.5.1",
+    "morgan": "^1.10.0",
+    "source-map-support": "^0.5.16"
+  },
+  "devDependencies": {
+    "electron": "^20.2.0",
+    "electron-builder": "^22.4.1",
+    "electron-reload": "^2.0.0-alpha.1",
+    "electron-webpack": "^2.8.2",
+    "webpack": "~4.42.1"
+  },
+  "electronWebpack": {
+    "title": true,
+    "whiteListedModules": ["source-map-support"],
+    "main": {
+      "sourceDirectory": "src/main",
+      "extraEntries": [
+        "@/preload.js"
+      ]
+    },
+    "renderer": {
+      "sourceDirectory": null
+    }
+  }
+}
